@@ -54,3 +54,24 @@ for (let i=0; i<count; i++){
   dot.style.opacity = 0.3 + Math.random()*0.5;
   s.appendChild(dot);
 }
+
+// Select all price containers on the page so this works for multiple products
+document.querySelectorAll('.price').forEach(priceContainer => {
+  const newPriceElement = priceContainer.querySelector('.new');
+  const oldPriceElement = priceContainer.querySelector('.old');
+  const saveElement = priceContainer.querySelector('.save');
+
+  if (newPriceElement && oldPriceElement && saveElement) {
+    
+    const newPrice = parseFloat(newPriceElement.textContent.replace(/[^0-9.]/g, ''));
+    const oldPrice = parseFloat(oldPriceElement.textContent.replace(/[^0-9.]/g, ''));
+
+    if (oldPrice > 0 && newPrice < oldPrice) {
+      const percentageSaved = ((oldPrice - newPrice) / oldPrice) * 100;
+      
+      saveElement.textContent = `Save ${percentageSaved.toFixed(2)}%`;
+    } else {
+      saveElement.style.display = 'none';
+    }
+  }
+});
