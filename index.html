@@ -1,693 +1,281 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glowish Cosmetics | Premium Face Serum</title>
-    <meta name="description" content="Discover Glowish Face Serum. Glow with Glowish & Evens Tons. Naturally Radiant, Even Toned Skin.">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- AOS Animation Library for Scroll Effects -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Glowish Cosmetics — Glow With Glowish</title>
+<meta name="description" content="Glowish Face Serum — Vitamin C, Hyaluronic Acid, Ferulic Acid & Niacinamide. Glow with Glowish and even your tone." />
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            purple: '#794099',       /* Primary Brand Purple */
-                            purple_dark: '#482060',  /* Deep rich purple for contrast */
-                            purple_light: '#a46bc7', /* Soft purple */
-                            purple_soft: '#f7f0fa',  /* Very light tinted background */
-                            gold: '#C59A45',
-                            gold_light: '#e8c985',
-                            gold_dark: '#9a752e',
-                            dark: '#1a0b26'          /* Almost black with purple tint */
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['"Playfair Display"', 'serif'],
-                        sans: ['"Poppins"', 'sans-serif'],
-                    },
-                    animation: {
-                        'blob': 'blob 10s infinite alternate',
-                        'marquee': 'marquee 30s linear infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                        'float-fast': 'float 4s ease-in-out infinite',
-                        'float-delayed': 'float 6s ease-in-out infinite 2s',
-                        'sparkle': 'sparkle 2s ease-in-out infinite alternate',
-                        'spin-slow': 'spin 15s linear infinite',
-                        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
-                        'logo-breathe': 'logoBreathe 3s ease-in-out infinite',
-                        'shine': 'shine 3s infinite',
-                    },
-                    keyframes: {
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
-                        },
-                        marquee: {
-                            '0%': { transform: 'translateX(0%)' },
-                            '100%': { transform: 'translateX(-50%)' },
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-15px)' },
-                        },
-                        sparkle: {
-                            '0%': { transform: 'scale(0.8) rotate(0deg)', opacity: '0.3' },
-                            '100%': { transform: 'scale(1.2) rotate(15deg)', opacity: '1' },
-                        },
-                        pulseGlow: {
-                            '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
-                            '50%': { opacity: '0.7', transform: 'scale(1.05)' },
-                        },
-                        logoBreathe: {
-                            '0%, 100%': { transform: 'scale(1)', filter: 'drop-shadow(0 0 15px rgba(121,64,153,0.4))' },
-                            '50%': { transform: 'scale(1.05)', filter: 'drop-shadow(0 0 30px rgba(121,64,153,0.9))' },
-                        },
-                        shine: {
-                            '0%': { left: '-100%' },
-                            '100%': { left: '200%' }
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: #2d2d2d;
-            background-color: #fcf9fd; /* Very slight purple tint to white */
-            overflow-x: hidden;
-        }
-        h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', serif; }
-        
-        /* Elevated Glassmorphism */
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            box-shadow: 0 20px 50px rgba(121, 64, 153, 0.1);
-        }
-        
-        .glass-panel-dark {
-            background: rgba(72, 32, 96, 0.4);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(164, 107, 199, 0.3);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-        }
-        
-        .glass-nav {
-            background: rgba(252, 249, 253, 0.85);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(121, 64, 153, 0.1);
-        }
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-        /* Luxurious Shiny Button */
-        .btn-luxury {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-            background: linear-gradient(135deg, #794099 0%, #482060 100%);
-            box-shadow: 0 10px 20px -5px rgba(121, 64, 153, 0.5);
-            z-index: 1;
-        }
-        .btn-luxury::after {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 50%; height: 100%;
-            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
-            transform: skewX(-25deg);
-            animation: shine 6s infinite;
-            z-index: -1;
-        }
-        .btn-luxury:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 30px -5px rgba(121, 64, 153, 0.7);
-            background: linear-gradient(135deg, #8a4ba8 0%, #482060 100%);
-        }
+<!-- AOS animations -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-        /* Secondary Luxury Button (Gold) */
-        .btn-gold {
-            background: linear-gradient(135deg, #C59A45 0%, #9a752e 100%);
-            box-shadow: 0 10px 20px -5px rgba(197, 154, 69, 0.5);
-            color: white;
-            transition: all 0.3s ease;
-        }
-        .btn-gold:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px -5px rgba(197, 154, 69, 0.7);
-        }
-
-        /* Image Gallery Active State */
-        .thumbnail-btn { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .thumbnail-active {
-            border-color: #C59A45 !important;
-            box-shadow: 0 0 15px rgba(197, 154, 69, 0.4);
-            transform: translateY(-5px) scale(1.05);
-        }
-        .thumbnail-btn:hover:not(.thumbnail-active) { transform: translateY(-3px); border-color: rgba(197, 154, 69, 0.5); }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: #fcf9fd; }
-        ::-webkit-scrollbar-thumb { background: #a46bc7; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #794099; }
-
-        /* Preloader */
-        #preloader {
-            position: fixed; inset: 0;
-            background: #fcf9fd;
-            z-index: 99999;
-            display: flex; justify-content: center; align-items: center;
-            transition: opacity 1s ease-out, visibility 1s ease-out;
-        }
-        .preloader-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-        .glowing-ring {
-            position: absolute;
-            width: 280px; height: 280px;
-            border-radius: 50%;
-            border: 2px solid transparent;
-            border-top-color: #794099;
-            border-bottom-color: #C59A45;
-            animation: spin 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
-        }
-        
-        /* Purple Text Gradients */
-        .text-gradient-purple {
-            background: linear-gradient(to right, #794099, #C59A45);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .text-gradient-gold {
-            background: linear-gradient(to right, #e8c985, #C59A45);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Soft background mesh for hero */
-        .bg-mesh {
-            background-color: #fcf9fd;
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(121, 64, 153, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 0%, rgba(197, 154, 69, 0.1) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(121, 64, 153, 0.15) 0px, transparent 50%),
-                radial-gradient(at 0% 100%, rgba(197, 154, 69, 0.1) 0px, transparent 50%);
-        }
-    </style>
+<link rel="stylesheet" href="styles.css" />
 </head>
+<body>
 
-<body class="flex flex-col min-h-screen relative selection:bg-brand-purple selection:text-white">
+<!-- Preloader -->
+<div class="preloader" id="preloader">
+  <div class="preloader-inner">
+    <img src="assets/logo.svg" alt="Glowish" class="preloader-logo" />
+    <div class="preloader-bar"><span></span></div>
+    <p>Loading your glow...</p>
+  </div>
+</div>
 
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="relative flex items-center justify-center">
-            <div class="absolute inset-0 bg-brand-purple blur-[80px] opacity-20 rounded-full animate-pulse-glow"></div>
-            <div class="glowing-ring"></div>
-            <img src="./images/Logo.png" alt="Glowish Loading..." class="w-48 md:w-64 relative z-10 animate-logo-breathe drop-shadow-2xl" onerror="this.src='https://placehold.co/200x80/794099/FFF?text=GLOWISH'">
-        </div>
+<!-- Sparkle background -->
+<div class="sparkles" id="sparkles"></div>
+
+<!-- Navbar -->
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#home" class="nav-logo">
+      <img src="assets/logo.svg" alt="Glowish logo"/>
+      <span>Glowish</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#product">Product</a>
+      <a href="#benefits">Benefits</a>
+      <a href="#coming">Coming Soon</a>
+      <a href="#contact">Contact</a>
+      <button class="btn btn-primary btn-sm nav-buy" onclick="openBuy()">Buy Now</button>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-text" data-aos="fade-right">
+      <span class="chip"><i class="fa-solid fa-sparkles"></i> Dermatologically Tested</span>
+      <h1>Glow With <span class="grad">Glowish</span><br/>& Even Your Tone.</h1>
+      <p>A radiance-boosting face serum crafted with Vitamin C, Hyaluronic Acid, Ferulic Acid & Niacinamide — for skin that truly glows.</p>
+      <div class="hero-cta">
+        <button class="btn btn-primary" onclick="openBuy()"><i class="fa-solid fa-bag-shopping"></i> Buy Now</button>
+        <a href="#product" class="btn btn-ghost">Discover <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="hero-badges">
+        <div><i class="fa-solid fa-leaf"></i><span>Plant Powered</span></div>
+        <div><i class="fa-solid fa-heart"></i><span>Cruelty Free</span></div>
+        <div><i class="fa-solid fa-shield-halved"></i><span>FDA Approved</span></div>
+      </div>
+    </div>
+    <div class="hero-visual" data-aos="fade-left">
+      <div class="halo"></div>
+      <img src="assets/bottle-front-transparent.svg" alt="Glowish Face Serum" class="hero-bottle float"/>
+      <div class="petal p1"></div>
+      <div class="petal p2"></div>
+      <div class="petal p3"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Product -->
+<section class="section product" id="product">
+  <div class="section-head" data-aos="fade-up">
+    <span class="eyebrow">Our Signature</span>
+    <h2>Glowish <span class="grad">Face Serum</span></h2>
+    <p>1.01 fl oz / 30 ml · Fast-absorbing · Non-sticky</p>
+  </div>
+
+  <div class="product-grid">
+    <div class="product-gallery" data-aos="zoom-in">
+      <div class="gallery-main">
+        <img id="mainImage" src="assets/hero.png" alt="Glowish Serum"/>
+      </div>
+      <div class="thumbs">
+        <img src="assets/hero.png" class="active" onclick="setMain(this)"/>
+        <img src="assets/bottle-front.png" onclick="setMain(this)"/>
+        <img src="assets/bottle-back.png" onclick="setMain(this)"/>
+        <img src="assets/box-front.png" onclick="setMain(this)"/>
+        <img src="assets/box-back.png" onclick="setMain(this)"/>
+      </div>
     </div>
 
-    <!-- Animated background Orbs for full site depth -->
-    <div class="fixed inset-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-        <div class="absolute top-[-10%] left-[-10%] w-[40rem] h-[40rem] bg-brand-purple/5 rounded-full mix-blend-multiply filter blur-[120px] animate-blob"></div>
-        <div class="absolute bottom-[-20%] right-[-10%] w-[50rem] h-[50rem] bg-brand-gold/5 rounded-full mix-blend-multiply filter blur-[120px] animate-blob" style="animation-delay: 3s"></div>
+    <div class="product-info" data-aos="fade-left">
+      <div class="rating">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star-half-stroke"></i>
+        <span>4.8 · Loved by 2,000+ women</span>
+      </div>
+      <h3>Glow With Glowish & Evens Tone</h3>
+      <p class="lead">Powered by clinically-loved actives to brighten, hydrate and revive dull skin — a daily glow ritual in one drop.</p>
+
+      <ul class="key-ingredients">
+        <li><span class="dot"></span> Vitamin C 10% — brightens & evens tone</li>
+        <li><span class="dot"></span> Hyaluronic Acid — deep hydration</li>
+        <li><span class="dot"></span> Ferulic Acid — antioxidant shield</li>
+        <li><span class="dot"></span> Niacinamide — smooths texture</li>
+      </ul>
+
+      <div class="price-row">
+        <div class="price">
+          <span class="new">₹499</span>
+          <span class="old">₹799</span>
+          <span class="save">Save 37%</span>
+        </div>
+        <button class="btn btn-primary btn-lg" onclick="openBuy()"><i class="fa-solid fa-cart-shopping"></i> Buy Now</button>
+      </div>
+
+      <div class="trust">
+        <div><i class="fa-solid fa-truck-fast"></i><span>Fast Delivery</span></div>
+        <div><i class="fa-solid fa-rotate-left"></i><span>Easy Returns</span></div>
+        <div><i class="fa-solid fa-lock"></i><span>Secure Checkout</span></div>
+      </div>
     </div>
+  </div>
+</section>
 
-    <header class="fixed w-full top-0 z-50 glass-nav transition-all duration-300" id="header">
-        <div class="container mx-auto px-4 lg:px-8 py-4 flex justify-between items-center">
-            <a href="#" class="flex items-center gap-2 group">
-                <img src="./images/Logo.png" alt="Glowish Logo" class="h-14 md:h-16 w-auto object-contain transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/150x50/794099/FFF?text=GLOWISH'">
-            </a>
-            
-            <nav class="hidden md:flex gap-12 items-center font-medium text-brand-purple_dark text-sm tracking-wide uppercase">
-                <a href="#home" class="relative group py-2">
-                    <span class="hover:text-brand-purple transition-colors">Home</span>
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#product" class="relative group py-2">
-                    <span class="hover:text-brand-purple transition-colors">Shop Serum</span>
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#coming-soon" class="relative group py-2">
-                    <span class="hover:text-brand-purple transition-colors">Coming Soon</span>
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
-                </a>
-            </nav>
+<!-- Benefits -->
+<section class="section benefits" id="benefits">
+  <div class="section-head" data-aos="fade-up">
+    <span class="eyebrow">Why Glowish</span>
+    <h2>Skin That <span class="grad">Speaks for Itself</span></h2>
+  </div>
+  <div class="benefit-grid">
+    <div class="benefit-card" data-aos="fade-up" data-aos-delay="0">
+      <div class="ic"><i class="fa-solid fa-sun"></i></div>
+      <h4>Instant Radiance</h4><p>Wake up dull skin with a burst of Vitamin C brightness.</p>
+    </div>
+    <div class="benefit-card" data-aos="fade-up" data-aos-delay="80">
+      <div class="ic"><i class="fa-solid fa-droplet"></i></div>
+      <h4>Deep Hydration</h4><p>Hyaluronic Acid locks in moisture for 24-hour dewiness.</p>
+    </div>
+    <div class="benefit-card" data-aos="fade-up" data-aos-delay="160">
+      <div class="ic"><i class="fa-solid fa-shield-heart"></i></div>
+      <h4>Antioxidant Shield</h4><p>Ferulic Acid protects skin from pollution & free radicals.</p>
+    </div>
+    <div class="benefit-card" data-aos="fade-up" data-aos-delay="240">
+      <div class="ic"><i class="fa-solid fa-feather"></i></div>
+      <h4>Smooth Texture</h4><p>Niacinamide refines pores for silky, even-toned skin.</p>
+    </div>
+  </div>
 
-            <a href="#product" class="hidden md:inline-block btn-luxury text-white px-8 py-2.5 rounded-full font-semibold text-sm tracking-widest uppercase">
-                Shop Now
-            </a>
+  <div class="promise" data-aos="fade-up">
+    <div><i class="fa-solid fa-circle-check"></i> No Parabens</div>
+    <div><i class="fa-solid fa-circle-check"></i> No Sulphates</div>
+    <div><i class="fa-solid fa-circle-check"></i> No Mineral Oil</div>
+    <div><i class="fa-solid fa-circle-check"></i> Cruelty Free</div>
+    <div><i class="fa-solid fa-circle-check"></i> Vegan</div>
+    <div><i class="fa-solid fa-circle-check"></i> Plant Powered</div>
+  </div>
+</section>
 
-            <!-- Mobile Menu Button -->
-            <button class="md:hidden text-brand-purple focus:outline-none">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
-        </div>
-    </header>
+<!-- Ingredients strip -->
+<section class="section ingredients" id="ingredients">
+  <div class="section-head" data-aos="fade-up">
+    <span class="eyebrow">Clean Formula</span>
+    <h2>Every drop, <span class="grad">carefully crafted</span></h2>
+    <p>Aqua, Disodium EDTA, Glycerin, Hyaluronic Acid, Centella Asiatica (Cica), 3-O-Ethyl Ascorbic Acid, Ferulic Acid, Tocopherol, Octyldodecanol, PEG 40, Hydrogenated Castor Oil, Phenoxyethanol & Ethylhexylglycerin, Liquorice Extract, Fragrance.</p>
+  </div>
+</section>
 
-    <main class="flex-grow">
-        
-        <!-- Hero Section -->
-        <section id="home" class="relative min-h-[100vh] flex items-center pt-24 pb-12 overflow-hidden bg-mesh">
-            <!-- Decorative Particles -->
-            <div class="absolute inset-0 pointer-events-none">
-                <svg class="absolute top-[20%] left-[15%] w-6 h-6 animate-sparkle text-brand-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5z"/></svg>
-                <svg class="absolute top-[30%] right-[10%] w-8 h-8 animate-sparkle text-brand-purple" style="animation-delay: 1.2s;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5z"/></svg>
-                <svg class="absolute bottom-[25%] left-[5%] w-4 h-4 animate-sparkle text-brand-gold" style="animation-delay: 0.5s;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5z"/></svg>
-            </div>
+<!-- Coming soon -->
+<section class="section coming" id="coming">
+  <div class="section-head" data-aos="fade-up">
+    <span class="eyebrow">Something New</span>
+    <h2>Coming <span class="grad">Soon</span></h2>
+    <p>More rituals of glow are on their way. Stay tuned. ✨</p>
+  </div>
+  <div class="coming-grid">
+    <div class="coming-card" data-aos="fade-up">
+      <div class="soon-tag">Coming Soon</div>
+      <div class="coming-visual"><i class="fa-solid fa-pump-soap"></i></div>
+      <h4>Glowish Face Wash</h4>
+      <p>Gentle, brightening daily cleanser.</p>
+    </div>
+    <div class="coming-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="soon-tag">Coming Soon</div>
+      <div class="coming-visual"><i class="fa-solid fa-jar"></i></div>
+      <h4>Glowish Moisturizer</h4>
+      <p>Featherweight glow-lock cream.</p>
+    </div>
+    <div class="coming-card" data-aos="fade-up" data-aos-delay="200">
+      <div class="soon-tag">Coming Soon</div>
+      <div class="coming-visual"><i class="fa-solid fa-spray-can-sparkles"></i></div>
+      <h4>Glowish Sunscreen</h4>
+      <p>SPF 50 invisible glow shield.</p>
+    </div>
+  </div>
+</section>
 
-            <div class="container mx-auto px-4 lg:px-8 flex flex-col lg:flex-row items-center relative z-10 gap-12 lg:gap-6">
-                
-                <!-- Hero Text Content -->
-                <div class="lg:w-[45%] text-center lg:text-left pt-10 lg:pt-0" data-aos="fade-right" data-aos-duration="1200">
-                    <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/80 border border-brand-purple/20 mb-6 shadow-lg backdrop-blur-md">
-                        <span class="flex h-2.5 w-2.5 rounded-full bg-brand-gold animate-pulse"></span>
-                        <span class="text-brand-purple_dark font-bold tracking-[0.2em] uppercase text-[10px] md:text-xs">Premium Skincare</span>
-                    </div>
-                    
-                    <h1 class="text-5xl md:text-6xl lg:text-[5rem] font-serif font-bold text-brand-purple_dark mb-6 leading-[1.1]">
-                        Reveal Your <br>
-                        <span class="text-gradient-purple italic font-medium">Inner Glow</span>
-                    </h1>
-                    
-                    <p class="text-gray-700 text-lg md:text-xl mb-10 leading-relaxed font-light">
-                        Unlock flawless, luminous skin. Our signature serum is infused with <strong class="font-semibold text-brand-purple">10% Vitamin C & Hyaluronic Acid</strong> to hydrate, brighten, and perfect your everyday radiance.
-                    </p>
-                    
-                    <div class="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start items-center" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-                        <a href="#product" class="btn-luxury text-white px-10 py-4 rounded-full font-semibold text-lg w-full sm:w-auto text-center flex items-center justify-center gap-2 tracking-wide">
-                            Shop The Serum
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                        </a>
-                        <div class="flex items-center gap-3 bg-white/60 px-5 py-3 rounded-full backdrop-blur-md border border-brand-purple/10 shadow-sm">
-                            <div class="flex -space-x-3">
-                                <img class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Reviewer">
-                                <img class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?auto=format&fit=crop&w=100&q=80" alt="Reviewer">
-                                <img class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=100&q=80" alt="Reviewer">
-                            </div>
-                            <div class="text-left">
-                                <div class="flex text-brand-gold text-[12px]">★★★★★</div>
-                                <span class="font-semibold text-brand-purple_dark text-xs">Loved by 10k+</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Hero Image Showcase using gorgeous lifestyle shot -->
-                <div class="lg:w-[55%] relative w-full flex justify-center items-center" data-aos="zoom-in" data-aos-duration="1500">
-                    <!-- Beautiful Glowing Backdrop specific to image -->
-                    <div class="absolute inset-0 bg-brand-purple rounded-full scale-75 blur-[100px] opacity-40 animate-pulse-glow z-0"></div>
-                    
-                    <!-- Premium Image Frame -->
-                    <div class="relative z-10 w-full max-w-lg mx-auto rounded-[2.5rem] overflow-hidden shadow-[0_30px_60px_rgba(121,64,153,0.3)] border-4 border-white/50 group transform transition-transform duration-700 hover:scale-[1.02]">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-purple_dark/60 to-transparent z-10 pointer-events-none"></div>
-                        <img src="./images/IMG_9090.PNG" alt="Glowish Lifestyle" class="w-full h-auto object-cover object-center aspect-[4/5]" onerror="this.src='https://placehold.co/600x750/794099/FFF?text=Glowish+Serum'">
-                        
-                        <!-- Floating badge on image -->
-                        <div class="absolute bottom-8 left-8 right-8 z-20 flex justify-between items-end">
-                            <div class="glass-panel text-white px-5 py-3 rounded-2xl border border-white/30 !bg-white/20">
-                                <p class="text-sm font-light mb-1">Advanced Formula</p>
-                                <p class="text-xl font-serif font-bold text-brand-gold_light">Nourish • Brighten</p>
-                            </div>
-                            <div class="w-16 h-16 rounded-full bg-brand-gold flex items-center justify-center shadow-lg border-2 border-white animate-float-fast">
-                                <span class="text-white font-bold text-xs text-center leading-tight tracking-wider">10%<br>Vit C</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- Contact / Footer -->
+<footer class="footer" id="contact">
+  <div class="footer-inner">
+    <div class="foot-brand">
+      <img src="assets/logo.svg" alt="Glowish"/>
+      <h3>Glowish Cosmetics</h3>
+      <p>Glow with Glowish — clean beauty, real results.</p>
+      <div class="socials">
+        <a href="https://www.instagram.com/glowish_cosmetics_" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
+        <!-- <a href="https://www.facebook.com/glowishcosmetics" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a> -->
+        <a href="https://www.youtube.com/@GlowWithGlowish" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://wa.me/917487979154" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h5>Shop</h5>
+      <a href="#product">Face Serum</a>
+      <a href="#coming">Coming Soon</a>
+    </div>
+    <div class="foot-col">
+      <h5>Company</h5>
+      <a href="#benefits">Why Glowish</a>
+      <a href="#ingredients">Ingredients</a>
+    </div>
+    <div class="foot-col">
+      <h5>Contact</h5>
+      <p><i class="fa-solid fa-phone"></i> +91 74879 79154</p>
+      <p><i class="fa-solid fa-envelope"></i> rebifoxlifestyle@gmail.com</p>
+      <p><i class="fa-solid fa-location-dot"></i> Ahmedabad, Gujarat</p>
+    </div>
+  </div>
+  <div class="copyright">© <span id="yr"></span> Glowish Cosmetics. All rights reserved.</div>
+</footer>
 
-        <!-- Elegant Marquee Banner (Deep Purple) -->
-        <div class="bg-brand-purple_dark text-white py-5 overflow-hidden whitespace-nowrap relative flex items-center shadow-[0_15px_30px_rgba(72,32,96,0.4)] z-20 border-y border-brand-purple/50">
-            <div class="animate-marquee inline-block font-semibold text-xs md:text-sm tracking-[0.25em] uppercase w-[200%]">
-                <span class="mx-8 text-brand-gold_light">✨ Radiant Glow</span>
-                <span class="mx-8">10% Vitamin C</span>
-                <span class="mx-8 text-brand-gold_light">Dermatologically Tested</span>
-                <span class="mx-8">✨ Vegan & Cruelty Free</span>
-                <span class="mx-8">Evens Skin Tone</span>
-                <span class="mx-8 text-brand-gold_light">FDA Approved</span>
-                <span class="mx-8 text-brand-gold_light">✨ Radiant Glow</span>
-                <span class="mx-8">10% Vitamin C</span>
-                <span class="mx-8 text-brand-gold_light">Dermatologically Tested</span>
-                <span class="mx-8">✨ Vegan & Cruelty Free</span>
-                <span class="mx-8">Evens Skin Tone</span>
-                <span class="mx-8 text-brand-gold_light">FDA Approved</span>
-            </div>
-        </div>
+<!-- Floating buy button -->
+<button class="fab" onclick="openBuy()" aria-label="Buy Now"><i class="fa-solid fa-bag-shopping"></i></button>
 
-        <!-- The Main Product Showcase (Rich Purple Theme) -->
-        <section id="product" class="py-24 relative z-10 bg-gradient-to-b from-brand-purple via-[#6a3289] to-brand-purple_dark overflow-hidden">
-            <!-- Background effects for product section -->
-            <div class="absolute top-0 right-0 w-[40rem] h-[40rem] bg-brand-purple_light rounded-full mix-blend-overlay filter blur-[150px] opacity-30"></div>
-            <div class="absolute bottom-0 left-0 w-[50rem] h-[50rem] bg-brand-gold rounded-full mix-blend-overlay filter blur-[150px] opacity-10"></div>
+<!-- Buy Modal -->
+<div class="modal" id="buyModal" aria-hidden="true">
+  <div class="modal-backdrop" onclick="closeBuy()"></div>
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeBuy()"><i class="fa-solid fa-xmark"></i></button>
+    <img src="assets/logo.svg" class="modal-logo" alt=""/>
+    <h3>Choose where to <span class="grad">buy</span></h3>
+    <p>Get your Glowish Face Serum from your favourite store:</p>
+    <div class="buy-options">
+      <a class="buy-btn whatsapp" href="https://wa.me/917487979154?text=Hi%20Glowish%2C%20I%20want%20to%20order%20the%20Face%20Serum." target="_blank" rel="noopener">
+        <i class="fa-brands fa-whatsapp"></i>
+        <div><strong>WhatsApp</strong><span>Order directly with us</span></div>
+      </a>
+      <a class="buy-btn amazon" href="https://www.amazon.in/" target="_blank" rel="noopener">
+        <i class="fa-brands fa-amazon"></i>
+        <div><strong>Amazon</strong><span>Fast Prime delivery</span></div>
+      </a>
+      <a class="buy-btn flipkart" href="https://www.flipkart.com/" target="_blank" rel="noopener">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <div><strong>Flipkart</strong><span>Great offers & COD</span></div>
+      </a>
+    </div>
+    <small class="modal-note">You'll be redirected to the store to complete your purchase.</small>
+  </div>
+</div>
 
-            <div class="container mx-auto px-4 lg:px-8 relative z-10">
-                
-                <div class="text-center mb-16" data-aos="fade-up">
-                    <span class="text-brand-gold_light font-bold tracking-[0.3em] uppercase text-xs mb-4 block drop-shadow-md">Shop Our Bestseller</span>
-                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 drop-shadow-lg">Experience The Magic</h2>
-                    <div class="h-1.5 w-32 bg-gradient-to-r from-transparent via-brand-gold to-transparent mx-auto rounded-full"></div>
-                </div>
-
-                <!-- Deep Glassmorphism Container -->
-                <div class="glass-panel-dark rounded-[2.5rem] p-6 md:p-10 lg:p-12 max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
-                    
-                    <!-- Product Gallery Area -->
-                    <div class="lg:w-1/2 w-full flex flex-col items-center" data-aos="fade-right" data-aos-duration="1000">
-                        
-                        <!-- Main Image Container -->
-                        <div class="relative w-full aspect-[4/5] bg-white rounded-[2rem] flex items-center justify-center p-4 md:p-8 mb-6 shadow-[0_20px_50px_rgba(0,0,0,0.4)] border-4 border-brand-purple_light/30 overflow-hidden group">
-                            <!-- Soft inner glow -->
-                            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-brand-purple_soft via-white to-white z-0"></div>
-                            
-                            <!-- Bestseller Badge -->
-                            <div class="absolute top-6 left-6 bg-brand-dark/90 backdrop-blur px-4 py-2 rounded-full shadow-lg flex items-center gap-2 z-20 transform -rotate-3 border border-brand-gold/30">
-                                <svg class="w-4 h-4 text-brand-gold animate-pulse" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                                <span class="text-xs font-bold text-white tracking-widest">BESTSELLER</span>
-                            </div>
-
-                            <img id="main-product-image" src="./images/IMG_9105.PNG" alt="Glowish Face Serum Main" class="relative z-10 w-full h-full object-contain drop-shadow-[0_20px_40px_rgba(121,64,153,0.2)] transition-all duration-700 group-hover:scale-[1.05]" onerror="this.src='https://placehold.co/400x500/DDD/555?text=Main+Image'">
-                        </div>
-                        
-                        <!-- Premium Thumbnails -->
-                        <div class="flex gap-4 justify-start md:justify-center overflow-x-auto pb-4 w-full px-2 snap-x scrollbar-hide">
-                            <button onclick="changeImage('./images/IMG_9105.PNG', this)" class="thumbnail-btn w-20 h-24 md:w-24 md:h-28 rounded-2xl bg-white border-[3px] border-brand-gold thumbnail-active flex-shrink-0 p-1 flex items-center justify-center shadow-lg snap-center cursor-pointer overflow-hidden">
-                                <img src="./images/IMG_9105.PNG" alt="Lifestyle 1" class="h-full w-full object-cover rounded-xl" onerror="this.src='https://placehold.co/100x100?text=1'">
-                            </button>
-                            <button onclick="changeImage('./images/IMG_9088.PNG', this)" class="thumbnail-btn w-20 h-24 md:w-24 md:h-28 rounded-2xl bg-white border-[3px] border-transparent flex-shrink-0 p-1 flex items-center justify-center shadow-lg snap-center cursor-pointer overflow-hidden opacity-80 hover:opacity-100">
-                                <img src="./images/IMG_9088.PNG" alt="Benefits" class="h-full w-full object-cover rounded-xl" onerror="this.src='https://placehold.co/100x100?text=2'">
-                            </button>
-                            <button onclick="changeImage('./images/bottol f_3.png', this)" class="thumbnail-btn w-20 h-24 md:w-24 md:h-28 rounded-2xl bg-[#fcf9fd] border-[3px] border-transparent flex-shrink-0 p-2 flex items-center justify-center shadow-lg snap-center cursor-pointer opacity-80 hover:opacity-100">
-                                <img src="./images/bottol f_3.png" alt="Front" class="max-h-full object-contain drop-shadow-md" onerror="this.src='https://placehold.co/100x100?text=3'">
-                            </button>
-                            <button onclick="changeImage('./images/bottle b_3.png', this)" class="thumbnail-btn w-20 h-24 md:w-24 md:h-28 rounded-2xl bg-[#fcf9fd] border-[3px] border-transparent flex-shrink-0 p-2 flex items-center justify-center shadow-lg snap-center cursor-pointer opacity-80 hover:opacity-100">
-                                <img src="./images/bottle b_3.png" alt="Back" class="max-h-full object-contain drop-shadow-md" onerror="this.src='https://placehold.co/100x100?text=4'">
-                            </button>
-                            <button onclick="changeImage('./images/box f_3.png', this)" class="thumbnail-btn w-20 h-24 md:w-24 md:h-28 rounded-2xl bg-[#fcf9fd] border-[3px] border-transparent flex-shrink-0 p-2 flex items-center justify-center shadow-lg snap-center cursor-pointer opacity-80 hover:opacity-100">
-                                <img src="./images/box f_3.png" alt="Box Front" class="max-h-full object-contain drop-shadow-md" onerror="this.src='https://placehold.co/100x100?text=5'">
-                            </button>
-                            <button onclick="changeImage('./images/box b_3.png', this)" class="thumbnail-btn w-20 h-24 md:w-24 md:h-28 rounded-2xl bg-[#fcf9fd] border-[3px] border-transparent flex-shrink-0 p-2 flex items-center justify-center shadow-lg snap-center cursor-pointer opacity-80 hover:opacity-100">
-                                <img src="./images/box b_3.png" alt="Box Back" class="max-h-full object-contain drop-shadow-md" onerror="this.src='https://placehold.co/100x100?text=6'">
-                            </button>
-                            <button onclick="changeImage('./images/box u_3.png', this)" class="thumbnail-btn w-20 h-24 md:w-24 md:h-28 rounded-2xl bg-[#fcf9fd] border-[3px] border-transparent flex-shrink-0 p-2 flex items-center justify-center shadow-lg snap-center cursor-pointer opacity-80 hover:opacity-100">
-                                <img src="./images/box u_3.png" alt="Box Top" class="max-h-full object-contain drop-shadow-md" onerror="this.src='https://placehold.co/100x100?text=7'">
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Product Information -->
-                    <div class="lg:w-1/2 flex flex-col justify-center">
-                        <div class="flex items-center gap-2 mb-4" data-aos="fade-up" data-aos-delay="100">
-                            <div class="flex text-brand-gold text-lg drop-shadow-md">★★★★★</div>
-                            <span class="text-sm font-medium text-brand-purple_light underline decoration-brand-purple_light underline-offset-4 hover:text-white transition-colors cursor-pointer">128 Verified Reviews</span>
-                        </div>
-                        
-                        <h1 class="text-4xl md:text-5xl font-serif font-bold text-white mb-4 drop-shadow-lg" data-aos="fade-up" data-aos-delay="150">Glowish Face Serum</h1>
-                        
-                        <div class="flex items-end gap-4 mb-6" data-aos="fade-up" data-aos-delay="200">
-                            <p class="text-4xl font-bold text-brand-gold drop-shadow-md">₹449</p>
-                            <p class="text-2xl text-brand-purple_light line-through mb-1 opacity-70">₹599</p>
-                            <span class="bg-brand-gold/20 border border-brand-gold/50 text-brand-gold_light px-4 py-1.5 rounded-lg text-xs font-bold mb-1.5 ml-2 shadow-sm uppercase tracking-widest backdrop-blur-sm">Save 25%</span>
-                        </div>
-                        
-                        <p class="text-white/80 mb-8 leading-relaxed text-lg font-light drop-shadow-sm" data-aos="fade-up" data-aos-delay="250">
-                            A powerful, lightweight luxury serum meticulously formulated to brighten, deeply hydrate, and flawlessly even out your skin tone. Feel the pure magic of nature and advanced science in every single drop.
-                        </p>
-
-                        <!-- Key Ingredients (Glass Dark) -->
-                        <div class="bg-black/20 backdrop-blur-md rounded-2xl p-6 mb-8 border border-white/10 shadow-inner" data-aos="fade-up" data-aos-delay="300">
-                            <h3 class="font-bold text-white mb-5 uppercase tracking-widest text-xs flex items-center gap-2">
-                                <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                                Powerful Actives
-                            </h3>
-                            <ul class="grid grid-cols-2 gap-y-5 gap-x-4">
-                                <li class="flex items-center gap-3 text-white/90 font-medium group text-sm md:text-base">
-                                    <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-brand-gold group-hover:bg-brand-gold group-hover:text-white transition-all duration-300 shadow-sm border border-white/10">✨</div>
-                                    Vitamin C 10%
-                                </li>
-                                <li class="flex items-center gap-3 text-white/90 font-medium group text-sm md:text-base">
-                                    <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300 shadow-sm border border-white/10">💧</div>
-                                    Hyaluronic Acid
-                                </li>
-                                <li class="flex items-center gap-3 text-white/90 font-medium group text-sm md:text-base">
-                                    <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-green-400 group-hover:bg-green-500 group-hover:text-white transition-all duration-300 shadow-sm border border-white/10">🌿</div>
-                                    Ferulic Acid
-                                </li>
-                                <li class="flex items-center gap-3 text-white/90 font-medium group text-sm md:text-base">
-                                    <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-pink-400 group-hover:bg-pink-500 group-hover:text-white transition-all duration-300 shadow-sm border border-white/10">🛡️</div>
-                                    Niacinamide
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- Brand Promises (Icons) -->
-                        <div class="grid grid-cols-4 gap-3 mb-10" data-aos="fade-up" data-aos-delay="350">
-                            <div class="flex flex-col items-center justify-center p-3 md:p-4 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300 shadow-sm transform hover:-translate-y-1">
-                                <img src="https://api.iconify.design/mdi/leaf.svg?color=%23e8c985" alt="Vegan" class="w-8 h-8 mb-2 drop-shadow-sm">
-                                <span class="text-[9px] md:text-[10px] font-bold text-white tracking-wider text-center">VEGAN</span>
-                            </div>
-                            <div class="flex flex-col items-center justify-center p-3 md:p-4 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300 shadow-sm transform hover:-translate-y-1">
-                                <img src="https://api.iconify.design/mdi/rabbit.svg?color=%23e8c985" alt="Cruelty Free" class="w-8 h-8 mb-2 drop-shadow-sm">
-                                <span class="text-[9px] md:text-[10px] font-bold text-white tracking-wider text-center">CRUELTY FREE</span>
-                            </div>
-                            <div class="flex flex-col items-center justify-center p-3 md:p-4 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300 shadow-sm transform hover:-translate-y-1">
-                                <img src="https://api.iconify.design/mdi/shield-check.svg?color=%23e8c985" alt="FDA Approved" class="w-8 h-8 mb-2 drop-shadow-sm">
-                                <span class="text-[9px] md:text-[10px] font-bold text-white tracking-wider text-center">FDA APPROVED</span>
-                            </div>
-                            <div class="flex flex-col items-center justify-center p-3 md:p-4 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300 shadow-sm transform hover:-translate-y-1">
-                                <img src="https://api.iconify.design/mdi/water-off.svg?color=%23e8c985" alt="No Parabens" class="w-8 h-8 mb-2 drop-shadow-sm">
-                                <span class="text-[9px] md:text-[10px] font-bold text-white tracking-wider text-center">NO PARABENS</span>
-                            </div>
-                        </div>
-
-                        <!-- Action Buttons -->
-                        <div class="pt-6 border-t border-white/20" data-aos="fade-up" data-aos-delay="400">
-                            <h3 class="font-bold text-brand-gold_light mb-4 uppercase tracking-widest text-xs drop-shadow-sm">Available Securely On</h3>
-                            <div class="flex flex-col sm:flex-row gap-4">
-                                
-                                <a href="https://wa.me/YOUR_PHONE_NUMBER?text=Hi!%20I'm%20interested%20in%20ordering%20the%20Glowish%20Face%20Serum." target="_blank" rel="noopener noreferrer" 
-                                   class="flex-1 flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1DA851] text-white py-4 px-4 rounded-xl font-bold shadow-[0_10px_20px_rgba(37,211,102,0.2)] hover:-translate-y-1 hover:shadow-[0_15px_25px_rgba(37,211,102,0.4)] transition-all duration-300">
-                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                                    WhatsApp
-                                </a>
-                                
-                                <a href="https://amazon.in/" target="_blank" rel="noopener noreferrer" 
-                                   class="flex-1 flex items-center justify-center gap-2 bg-white text-gray-900 py-4 px-4 rounded-xl font-bold shadow-[0_10px_20px_rgba(0,0,0,0.1)] hover:-translate-y-1 hover:shadow-[0_15px_25px_rgba(255,153,0,0.2)] transition-all duration-300 border-b-4 border-[#FF9900]">
-                                    <svg class="w-6 h-6 text-[#FF9900]" viewBox="0 0 24 24" fill="currentColor"><path d="M14.93 16.48c-1.3.9-3.26 1.48-5.35 1.48-3.08 0-6.17-1.12-8.36-3.23-.28-.27-.08-.73.3-.8 3.5-1 7.4-1.25 11.23-.5.4.08.62.53.37.86-.3.4-.66.8-1.07 1.15a13.37 13.37 0 01-4.7 2.1c2 .2 4.14-.14 5.97-.9.45-.18 1-.43 1.34-.68.27-.2.65 0 .5.33-.2.43-.53.86-.88 1.2h.02c-.17.18-.38.35-.6.5h.02a.7.7 0 01-.2.2 13.43 13.43 0 01-1.34 1.13c-.35.25-.72.48-1.1.7z"/><path d="M21.2 15.65c-.14-.23-.42-.2-.55 0-.6 1.14-1.5 2.12-2.6 2.8-.2.12-.13.45.1.48 2.04.16 3.9-.76 5.06-2.1.2-.23-.02-.57-.27-.6-.54-.08-1.14-.2-1.74-.58z"/></svg>
-                                    Amazon
-                                </a>
-                                
-                                <a href="https://flipkart.com/" target="_blank" rel="noopener noreferrer" 
-                                   class="flex-1 flex items-center justify-center gap-2 bg-white text-gray-900 py-4 px-4 rounded-xl font-bold shadow-[0_10px_20px_rgba(0,0,0,0.1)] hover:-translate-y-1 hover:shadow-[0_15px_25px_rgba(40,116,240,0.2)] transition-all duration-300 border-b-4 border-[#2874F0]">
-                                   <svg class="w-6 h-6 text-[#2874F0]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
-                                    Flipkart
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="coming-soon" class="py-24 relative overflow-hidden bg-white">
-            <div class="container mx-auto px-4 text-center relative z-10">
-                <span class="text-brand-purple font-bold tracking-[0.3em] uppercase text-xs mb-4 block" data-aos="fade-up">Expand Your Routine</span>
-                <h2 class="text-4xl md:text-5xl font-serif font-bold text-brand-purple_dark mb-4" data-aos="fade-up" data-aos-delay="100">More Brilliance <span class="text-gradient-gold italic font-normal">Coming Soon</span></h2>
-                <p class="text-gray-600 text-lg mb-16 max-w-2xl mx-auto font-light" data-aos="fade-up" data-aos-delay="150">
-                    Our expert dermatologists are crafting the next luxurious additions to the Glowish family. 
-                </p>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                    <!-- Card 1 -->
-                    <div class="glass-panel rounded-[2rem] p-8 flex flex-col items-center justify-center aspect-square relative group overflow-hidden transition-all duration-500 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(121,64,153,0.15)] border-2 border-brand-purple/5" data-aos="fade-up" data-aos-delay="200">
-                        <div class="w-24 h-24 mb-6 rounded-full bg-brand-purple_soft shadow-inner flex items-center justify-center text-brand-purple relative group-hover:scale-110 transition-transform duration-500 border border-brand-purple/10">
-                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"></path></svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-brand-purple_dark mb-2 font-serif group-hover:text-brand-purple transition-colors">Glowish Cleanser</h3>
-                        <p class="text-gray-500 text-sm">Gentle & Purifying</p>
-                        <span class="mt-6 px-6 py-2 bg-gray-100 text-gray-500 rounded-full text-xs font-bold tracking-widest uppercase shadow-sm border border-gray-200">Revealing Soon</span>
-                    </div>
-
-                    <!-- Highlighted Card 2 (Deep Purple) -->
-                    <div class="bg-gradient-to-br from-brand-purple to-brand-purple_dark rounded-[2rem] p-8 flex flex-col items-center justify-center aspect-square relative group overflow-hidden shadow-[0_20px_40px_rgba(72,32,96,0.4)] transform md:-translate-y-8 transition-all duration-500 hover:-translate-y-12 border border-brand-purple_light/30" data-aos="fade-up" data-aos-delay="300">
-                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(197,154,69,0.2),_transparent_70%)] opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        
-                        <div class="relative w-40 h-40 mb-4 flex items-center justify-center group-hover:animate-float-fast z-10">
-                            <!-- Real Mystery Box -->
-                            <img src="./images/box u.png" alt="Mystery Box" class="w-full h-auto relative z-10 drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]" onerror="this.src='https://placehold.co/150x150/9b5dc0/FFF?text=Box'">
-                        </div>
-                        
-                        <h3 class="text-2xl font-bold text-white mb-2 font-serif text-center relative z-10 drop-shadow-md">Hydrating Cream</h3>
-                        <p class="text-brand-gold_light font-medium text-sm relative z-10">Lock in the glow</p>
-                        <span class="mt-5 px-6 py-2 bg-brand-gold text-white rounded-full text-xs font-bold shadow-[0_10px_20px_rgba(197,154,69,0.4)] tracking-widest uppercase relative z-10 border border-brand-gold_light">In Formulation</span>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="glass-panel rounded-[2rem] p-8 flex flex-col items-center justify-center aspect-square relative group overflow-hidden transition-all duration-500 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(197,154,69,0.15)] border-2 border-brand-gold/10" data-aos="fade-up" data-aos-delay="400">
-                        <div class="w-24 h-24 mb-6 rounded-full bg-brand-gold/10 shadow-inner flex items-center justify-center text-brand-gold relative group-hover:scale-110 transition-transform duration-500 border border-brand-gold/20">
-                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-brand-purple_dark mb-2 font-serif group-hover:text-brand-gold transition-colors">Sun Protection</h3>
-                        <p class="text-gray-500 text-sm">SPF 50+ Broad Spectrum</p>
-                        <span class="mt-6 px-6 py-2 bg-gray-100 text-gray-500 rounded-full text-xs font-bold tracking-widest uppercase shadow-sm border border-gray-200">Revealing Soon</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="bg-brand-dark text-white pt-24 pb-8 relative overflow-hidden">
-        <!-- Footer decorative background -->
-        <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-brand-gold via-brand-purple to-brand-gold"></div>
-        <div class="absolute -top-40 -right-40 w-[40rem] h-[40rem] bg-brand-purple rounded-full mix-blend-screen filter blur-[150px] opacity-20 animate-pulse-glow"></div>
-        
-        <div class="container mx-auto px-4 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-16">
-                
-                <!-- Brand Info -->
-                <div class="flex flex-col items-center md:items-start text-center md:text-left" data-aos="fade-up">
-                    <div class="bg-white/5 backdrop-blur-md border border-white/10 px-6 py-4 rounded-3xl flex items-center gap-4 mb-6 shadow-2xl">
-                         <div class="w-14 h-14 md:w-16 md:h-16 overflow-hidden rounded-full flex items-start justify-center bg-white">
-                             <img src="./images/Logo.png" alt="Glowish Icon" class="w-full h-full object-cover object-[center_top] scale-[1.35] origin-[center_10%]" onerror="this.src='https://placehold.co/100x100/794099/FFF?text=G'">
-                         </div>
-                         <span class="font-serif font-bold text-3xl text-white tracking-widest drop-shadow-md">GLOWISH</span>
-                    </div>
-                    <p class="text-gray-400 text-sm max-w-xs leading-relaxed font-light">
-                        Inspired by Style, Powered by Nature. Bringing out your natural radiance with scientifically backed, luxurious skincare formulations.
-                    </p>
-                </div>
-
-                <!-- Quick Links -->
-                <div class="flex flex-col items-center md:items-start" data-aos="fade-up" data-aos-delay="100">
-                    <h4 class="text-2xl font-semibold font-serif mb-6 text-brand-gold tracking-wide">Discover</h4>
-                    <ul class="space-y-4 text-gray-300 text-sm">
-                        <li><a href="#home" class="hover:text-brand-gold hover:translate-x-2 inline-block transition-all duration-300">Home</a></li>
-                        <li><a href="#product" class="hover:text-brand-gold hover:translate-x-2 inline-block transition-all duration-300">Shop Serum</a></li>
-                        <li><a href="#coming-soon" class="hover:text-brand-gold hover:translate-x-2 inline-block transition-all duration-300">Coming Soon</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact & Legal -->
-                <div class="flex flex-col items-center md:items-start text-center md:text-left" data-aos="fade-up" data-aos-delay="200">
-                    <h4 class="text-2xl font-semibold font-serif mb-6 text-brand-gold tracking-wide">Connect</h4>
-                    <ul class="space-y-5 text-gray-300 text-sm font-light">
-                        <li class="flex items-start gap-4 justify-center md:justify-start group cursor-default">
-                            <div class="bg-brand-purple/20 p-2.5 rounded-xl group-hover:bg-brand-purple transition-colors border border-brand-purple/30">
-                                <svg class="w-5 h-5 text-brand-gold_light group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                            </div>
-                            <span class="mt-2 text-white font-medium">+91 74879 79154</span>
-                        </li>
-                        <li class="flex items-start gap-4 justify-center md:justify-start text-left group cursor-default">
-                            <div class="bg-brand-purple/20 p-2.5 rounded-xl group-hover:bg-brand-purple transition-colors border border-brand-purple/30">
-                                <svg class="w-5 h-5 text-brand-gold_light group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                            </div>
-                            <span class="mt-1">Marketed by: <br><strong class="font-medium text-white tracking-wide">Rebifox Lifestyle</strong></span>
-                        </li>
-                        <li class="flex items-start gap-4 justify-center md:justify-start text-left group cursor-default">
-                            <div class="bg-brand-purple/20 p-2.5 rounded-xl group-hover:bg-brand-purple transition-colors border border-brand-purple/30">
-                                <svg class="w-5 h-5 text-brand-gold_light group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                            </div>
-                            <span class="mt-2 text-white">Ahmedabad, Gujarat - 382430</span>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-            
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-500 text-xs font-light tracking-wider">
-                <p>&copy; <span id="year"></span> Glowish Cosmetics (Kuku Cosmetics). All rights reserved.</p>
-                <div class="mt-4 md:mt-0 space-x-6">
-                    <a href="#" class="hover:text-brand-gold transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-brand-gold transition-colors">Terms of Service</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Initialize AOS Animation Library
-        AOS.init({
-            once: true,
-            offset: 50,
-            duration: 900,
-            easing: 'ease-out-cubic',
-        });
-
-        // Preloader Logic
-        window.addEventListener('load', function() {
-            const preloader = document.getElementById('preloader');
-            setTimeout(() => {
-                preloader.classList.add('preloader-hidden');
-            }, 800);
-        });
-
-        // Set current year
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Luxurious Image Gallery Swap with blur transition
-        function changeImage(imageSrc, clickedButton) {
-            const mainImage = document.getElementById('main-product-image');
-            
-            mainImage.style.transform = 'scale(0.95)';
-            mainImage.style.opacity = '0.2';
-            mainImage.style.filter = 'blur(8px)';
-            
-            setTimeout(() => {
-                mainImage.src = imageSrc;
-                mainImage.style.transform = 'scale(1)';
-                mainImage.style.opacity = '1';
-                mainImage.style.filter = 'blur(0)';
-            }, 300);
-
-            // Update thumbnails
-            const allThumbnails = document.querySelectorAll('.thumbnail-btn');
-            allThumbnails.forEach(btn => {
-                btn.classList.remove('thumbnail-active', 'border-brand-gold');
-                btn.classList.add('border-transparent');
-                btn.classList.add('opacity-80');
-            });
-
-            // Activate clicked
-            clickedButton.classList.remove('border-transparent', 'opacity-80');
-            clickedButton.classList.add('thumbnail-active', 'border-brand-gold');
-        }
-
-        // Header glassmorphism on scroll
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                header.classList.add('py-2', 'shadow-md', 'bg-white/95');
-                header.classList.remove('py-4', 'bg-transparent');
-            } else {
-                header.classList.add('py-4', 'bg-transparent');
-                header.classList.remove('py-2', 'shadow-md', 'bg-white/95');
-            }
-        });
-    </script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
