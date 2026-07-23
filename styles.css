@@ -428,3 +428,13 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.1
   .promise{border-radius:20px;padding:20px}
   .section{padding:70px 20px}
 }
+
+.foot-col address p {
+  display: flex;
+  align-items: center;
+}
+
+.foot-col address p a {
+  display: inline;
+  padding: 0;
+}

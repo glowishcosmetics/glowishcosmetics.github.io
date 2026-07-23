@@ -4,8 +4,18 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Glowish Cosmetics — Glow With Glowish</title>
+
 <meta name="description" content="Glowish Face Serum — Vitamin C, Hyaluronic Acid, Ferulic Acid & Niacinamide. Glow with Glowish and even your tone." />
+<meta name="keywords" content="Vitamin C face serum, hyaluronic acid serum India, best serum for glowing skin, cruelty free cosmetics, Glowish Cosmetics" />
+<meta property="og:type" content="product" />
+<meta property="og:title" content="Glowish Face Serum — Vitamin C & Hyaluronic Acid" />
+<meta property="og:description" content="Boost your radiance with our dermatologically tested face serum. Get an even skin tone today." />
+<meta property="og:image" content="https://glowishcosmetics.github.io/assets/hero.webp" />
+<meta property="og:url" content="https://glowishcosmetics.github.io/" />
+<meta property="og:site_name" content="Glowish Cosmetics" />
+
 <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+<link rel="preload" as="image" href="assets/hero.webp">
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,6 +29,36 @@
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 <meta name="google-site-verification" content="EDwtlqb7Qg2aDEmBquYoYthZ4oadwMVeUi9mIbfhUn8" />
 <link rel="stylesheet" href="styles.css" />
+<!-- Schema.org Product Markup for Google Rich Results -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Glowish Face Serum",
+  "image": "https://glowishcosmetics.github.io/assets/hero.webp",
+  "description": "A radiance-boosting face serum crafted with Vitamin C, Hyaluronic Acid, Ferulic Acid & Niacinamide.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Glowish Cosmetics"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://glowishcosmetics.github.io/",
+    "priceCurrency": "INR",
+    "price": "349",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "Glowish Cosmetics"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "2000"
+  }
+}
+</script>
 </head>
 <body>
 
@@ -82,7 +122,8 @@
     </div>
     <div class="hero-visual" data-aos="fade-left">
       <div class="halo"></div>
-      <img src="assets/bottle-front-transparent.svg" alt="Glowish Face Serum" class="hero-bottle float"/>
+      <!-- <img src="assets/bottle-front-transparent.svg" alt="Glowish Face Serum" class="hero-bottle float"/> -->
+      <img src="assets/bottle-front.webp" alt="Glowish Vitamin C Face Serum" class="hero-bottle float"/>
       <div class="petal p1"></div>
       <div class="petal p2"></div>
       <div class="petal p3"></div>
@@ -94,20 +135,20 @@
 <section class="section product" id="product">
   <div class="section-head" data-aos="fade-up">
     <span class="eyebrow">Our Signature</span>
-    <h2>Glowish <span class="grad">Face Serum</span></h2>
+    <h2>Glowish Vitamin C <span class="grad">Face Serum</span></h2>
     <p>1.01 fl oz / 30 ml · Fast-absorbing · Non-sticky</p>
   </div>
 
   <div class="product-grid">
     <div class="product-gallery" data-aos="zoom-in">
       <div class="gallery-main">
-        <img id="mainImage" src="assets/hero.webp" alt="Glowish Serum"/>
+        <img id="mainImage" src="assets/hero.webp" alt="Glowish Vitamin C Face Serum Bottle"/>
       </div>
       <div class="thumbs">
         <img src="assets/hero.webp" class="active" onclick="setMain(this)"/>
-        <img src="assets/bottle-front.webp" loading="lazy" onclick="setMain(this)"/>
-        <img src="assets/bottle-back.webp" loading="lazy" onclick="setMain(this)"/>
-        <img src="assets/box-front.webp" loading="lazy" onclick="setMain(this)"/>
+        <img src="assets/bottle-front.webp" alt="Glowish Vitamin C Face Serum Front View" loading="lazy" onclick="setMain(this)"/>
+        <img src="assets/bottle-back.webp" alt="Glowish Vitamin C Face Serum Back View" loading="lazy" onclick="setMain(this)"/>
+        <img src="assets/box-front.webp" alt="Glowish Face Serum Packaging Box" loading="lazy" onclick="setMain(this)"/>
         <img src="assets/box-back.webp" loading="lazy" onclick="setMain(this)"/>
       </div>
     </div>
@@ -228,10 +269,10 @@
       <h3>Glowish Cosmetics</h3>
       <p>Glow with Glowish — clean beauty, real results.</p>
       <div class="socials">
-        <a href="https://www.instagram.com/glowish_cosmetics_" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.instagram.com/glowish_cosmetics_" target="_blank" rel="noopener noreferrer" aria-label="Follow Glowish Cosmetics on Instagram"><i class="fa-brands fa-instagram"></i></a>
         <!-- <a href="https://www.facebook.com/glowishcosmetics" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a> -->
-        <a href="https://www.youtube.com/@GlowWithGlowish" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
-        <a href="https://wa.me/917487979154" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://www.youtube.com/@GlowWithGlowish" target="_blank" rel="noopener noreferrer" aria-label="Subscribe to our YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://wa.me/917487979154" target="_blank" rel="noopener noreferrer" aria-label="Chat with Glowish Cosmetics on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
       </div>
     </div>
     <div class="foot-col">
@@ -244,11 +285,19 @@
       <a href="#benefits">Why Glowish</a>
       <a href="#ingredients">Ingredients</a>
     </div>
-    <div class="foot-col">
+    <!-- <div class="foot-col">
       <h5>Contact</h5>
       <p><i class="fa-solid fa-phone"></i> +91 74879 79154</p>
       <p><i class="fa-solid fa-envelope"></i> rebifoxlifestyle@gmail.com</p>
       <p><i class="fa-solid fa-location-dot"></i> Ahmedabad, Gujarat</p>
+    </div> -->
+    <div class="foot-col">
+      <h5>Contact</h5>
+      <address>
+        <p><i class="fa-solid fa-phone"></i> <a href="tel:+917487979154">+91 74879 79154</a></p>
+        <p><i class="fa-solid fa-envelope"></i> <a href="mailto:rebifoxlifestyle@gmail.com">rebifoxlifestyle@gmail.com</a></p>
+        <p><i class="fa-solid fa-location-dot"></i> Ahmedabad, Gujarat</p>
+      </address>
     </div>
   </div>
   <div class="copyright">© <span id="yr"></span> Glowish Cosmetics. All rights reserved.</div>
@@ -283,7 +332,7 @@
   </div>
 </div>
 
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script src="script.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+<script src="script.js" defer></script>
 </body>
 </html>
